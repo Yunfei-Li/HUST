@@ -1,0 +1,14 @@
+int getInt(int max,int min);
+int getIntFromFile(FILE *in,int max,int min);
+void displaySudoku(int *assignment,int degree);
+void SolveSudoku(void);
+void PlayBinaryPuzzle(void);
+void printMainMenu(void);
+void printBinaryPuzzleMenu(void);
+void printInputMethod(void);
+void printPuzzleOperation(void);
+void Puzzle(void);
+void printSATStategyMenu(void);
+void SAT_Recursive(int k);
+void SAT_nonRecursive(void);
+void SAT(void);
