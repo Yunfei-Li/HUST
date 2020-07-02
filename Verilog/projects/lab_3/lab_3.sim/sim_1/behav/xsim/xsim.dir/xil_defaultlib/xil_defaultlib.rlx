@@ -1,0 +1,15 @@
+0.6
+2019.2
+Nov  6 2019
+21:57:16
+C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.sim/sim_1/behav/xsim/glbl.v,1573089660,verilog,,,,glbl,,,,,,,,
+C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.srcs/sim_1/new/lab3_1_tb.v,1586846766,verilog,,,,lab3_1_tb,,,,,,,,
+C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.srcs/sim_1/new/lab3_2_tb.v,1586848459,verilog,,,,lab3_2_tb,,,,,,,,
+C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.srcs/sim_1/new/lab3_3_tb.v,1586851015,verilog,,,,lab3_3_tb,,,,,,,,
+C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.srcs/sim_1/new/lab3_4_tb.v,1586853196,verilog,,,,lab3_4_tb,,,,,,,,
+C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.srcs/sources_1/new/CNT4_synch_reset_enable.v,1588928419,verilog,,C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.srcs/sim_1/new/lab3_4_tb.v,,CNT4_synch_reset_enable,,,,,,,,
+C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.srcs/sources_1/new/D_ff.v,1586846137,verilog,,C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.srcs/sources_1/new/D_ff_n.v,,D_ff,,,,,,,,
+C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.srcs/sources_1/new/D_ff_n.v,1586846167,verilog,,C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.srcs/sources_1/new/D_latch.v,,D_ff_n,,,,,,,,
+C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.srcs/sources_1/new/D_latch.v,1586846094,verilog,,C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.srcs/sim_1/new/lab3_1_tb.v,,D_latch,,,,,,,,
+C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.srcs/sources_1/new/Register_synch_reset_load.v,1588927979,verilog,,C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.srcs/sim_1/new/lab3_2_tb.v,,Register_synch_reset_load,,,,,,,,
+C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.srcs/sources_1/new/Serial_in_parallel_out_enable.v,1588928145,verilog,,C:/Users/Jovy/Desktop/MyFile/Desk/Engineer/EE/vivado/projects/lab_3/lab_3.srcs/sim_1/new/lab3_3_tb.v,,Serial_in_parallel_out_enable,,,,,,,,
