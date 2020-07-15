@@ -2,4 +2,4 @@
 ## For Reference Only
  Labs & Course Designs in HUST
  
- C Programming Labs, C Course Design have been uploaded already.
+ C, C Course Design, Verilog, Digital Circuits, Assembler have been uploaded already.
