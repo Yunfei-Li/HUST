@@ -1,0 +1,23 @@
+#define IDM_FILE_EXIT   10001
+#define IDM_ACTN_RECOM  10002
+#define IDM_ACTN_LIST   10003
+#define IDM_ACTN_CLEAR  10004
+#define IDM_HELP_ABOUT  10101
+
+MyMenu  MENU
+BEGIN
+	POPUP "&File"
+  	BEGIN
+    		MENUITEM "E&xit", IDM_FILE_EXIT
+	END
+	POPUP "&ACTION"
+  	BEGIN
+	        MENUITEM "R&ecommendation", IDM_ACTN_RECOM
+    		MENUITEM "L&ist", IDM_ACTN_LIST
+    		MENUITEM "C&lear",IDM_ACTN_CLEAR
+	END
+	POPUP "&Help"
+	BEGIN
+	    	MENUITEM "&About",IDM_HELP_ABOUT
+	END
+END

@@ -1,0 +1,254 @@
+;本模块完成功能：查找商品并显示信息、修改商品信息
+;本模块的编写者：ACM1801班李永康
+        EXTERN F2T10:FAR, F10T2:FAR, CRLF:BYTE
+		PUBLIC DISPLAY, CHANGE
+.386
+;子程序 PRINTS
+;功能：输出一个以0结尾的字符串
+;入口参数：要输出的串首址存放在BX中
+;出口参数：无
+
+;子程序 DISPLAY
+;功能：显示商品信息
+;入口参数：将商品信息首址存放在BX中
+;出口参数：无
+
+;子程序 CHANGE
+;功能：修改商品信息
+;入口参数：将商品信息首址存放在BX中
+;出口参数：无
+
+DATA    SEGMENT USE16 PARA PUBLIC 'DATA'
+NAMEH   DB  ' Product name: $'
+DISH    DB  '   Discount:   $'
+PCH     DB  'Purchased cost:$'
+PH      DB  '     Price:    $'
+TSH     DB  '  Total stock: $'
+SAH     DB  '  Sold amount: $'
+RECH    DB  'Recommendation:$'
+
+IN_TMP  DB  10
+        DB  ?
+		DB  10 DUP(0)
+		
+DATA    ENDS
+
+CODE    SEGMENT USE16 PARA PUBLIC 'CODE'
+	    ASSUME CS:CODE,DS:DATA
+		
+PRINTS  PROC FAR
+        PUSH AX
+		PUSH BX
+		
+NEXT:   MOV DL, [BX]
+		CMP AL, 0
+		JE  EN
+		MOV AH, 02H
+		INT 21H
+		INC BX
+		JMP NEXT
+
+EN:     POP BX
+        POP AX
+		RET
+PRINTS  ENDP
+
+DISPLAY PROC FAR
+        PUSH AX
+		PUSH DX
+
+        LEA DX, NAMEH
+		MOV AH, 09H
+		INT 21H
+		CALL PRINTS
+		LEA DX, CRLF
+		MOV AH, 09H
+		INT 21H
+        
+		LEA DX, DISH
+		MOV AH, 09H
+		INT 21H
+		MOV AX, 0
+		MOV AL, 10[BX]    ;输出商品折扣
+		MOV DX, 16
+		CALL F2T10
+		LEA DX, CRLF
+		MOV AH, 09H
+		INT 21H
+		
+		LEA DX, PH
+		MOV AH, 09H
+		INT 21H
+		MOV AX, 13[BX]    ;输出商品销售价
+		MOV DX, 16
+		CALL F2T10
+		LEA DX, CRLF
+		MOV AH, 09H
+		INT 21H
+		
+		LEA DX, TSH
+		MOV AH, 09H
+		INT 21H
+		MOV AX, 15[BX]    ;输出进货总数
+		MOV DX, 16
+		CALL F2T10
+		LEA DX, CRLF
+		MOV AH, 09H
+		INT 21H
+		
+		LEA DX, SAH
+		MOV AH, 09H
+		INT 21H
+		MOV AX, 17[BX]    ;输出已售数量
+		MOV DX, 16
+		CALL F2T10
+		LEA DX, CRLF
+		MOV AH, 09H
+		INT 21H
+		
+		LEA DX, RECH
+		MOV AH, 09H
+		INT 21H
+		MOV AX, 19[BX]    ;输出商品推荐度
+		MOV DX, 16
+		CALL F2T10
+		LEA DX, CRLF
+		MOV AH, 09H
+		INT 21H
+		
+		POP DX
+		POP AX
+		RET
+DISPLAY ENDP
+
+CHANGE  PROC FAR
+        PUSH AX
+		PUSH CX
+		PUSH DX
+		PUSH SI
+		
+DISA:   LEA DX, CRLF
+		MOV AH, 09H
+		INT 21H
+        LEA DX, DISH
+		MOV AH, 09H
+		INT 21H
+		MOV AX, 0
+		MOV AL, 10[BX]    ;输出商品折扣
+		MOV DX, 16
+		CALL F2T10
+		MOV DL, '-'
+		MOV AH, 02H
+		INT 21H
+		MOV DL, '>'
+		MOV AH, 02H
+		INT 21H
+		LEA DX, IN_TMP
+		MOV AH, 0AH
+		INT 21H
+		CMP IN_TMP+1, 0
+		JE PCA
+		MOV SI, OFFSET IN_TMP + 2
+		MOV CX, 0
+		MOV CL, IN_TMP+1
+		CALL F10T2
+		CMP SI, -1
+		JE DISA
+		MOV 10[BX], AL
+		
+PCA:	LEA DX, CRLF
+		MOV AH, 09H
+		INT 21H
+		LEA DX, PCH
+		MOV AH, 09H
+		INT 21H
+		MOV AX, 11[BX]    ;输出进货价
+		MOV DX, 16
+		CALL F2T10
+		MOV DL, '-'
+		MOV AH, 02H
+		INT 21H
+		MOV DL, '>'
+		MOV AH, 02H
+		INT 21H
+		LEA DX, IN_TMP
+		MOV AH, 0AH
+		INT 21H
+		CMP IN_TMP+1, 0
+		JE PA
+		MOV SI, OFFSET IN_TMP + 2
+		MOV CX, 0
+		MOV CL, IN_TMP+1
+		CALL F10T2
+		CMP SI, -1
+		JE PCA
+		MOV 11[BX], AX
+		
+PA: 	LEA DX, CRLF
+		MOV AH, 09H
+		INT 21H
+		LEA DX, PH
+		MOV AH, 09H
+		INT 21H
+		MOV AX, 13[BX]    ;输出销售价
+		MOV DX, 16
+		CALL F2T10
+		MOV DL, '-'
+		MOV AH, 02H
+		INT 21H
+		MOV DL, '>'
+		MOV AH, 02H
+		INT 21H
+		LEA DX, IN_TMP
+		MOV AH, 0AH
+		INT 21H
+		CMP IN_TMP+1, 0
+		JE TSA
+		MOV SI, OFFSET IN_TMP + 2
+		MOV CX, 0
+		MOV CL, IN_TMP+1
+		CALL F10T2
+		CMP SI, -1
+		JE PA
+		MOV 13[BX], AX
+		
+TSA:	LEA DX, CRLF
+		MOV AH, 09H
+		INT 21H
+		LEA DX, TSH
+		MOV AH, 09H
+		INT 21H
+		MOV AX, 15[BX]    ;输出进货总数
+		MOV DX, 16
+		CALL F2T10
+		MOV DL, '-'
+		MOV AH, 02H
+		INT 21H
+		MOV DL, '>'
+		MOV AH, 02H
+		INT 21H
+		LEA DX, IN_TMP
+		MOV AH, 0AH
+		INT 21H
+		CMP IN_TMP+1, 0
+		JE RECOVER
+		MOV SI, OFFSET IN_TMP + 2
+		MOV CX, 0
+		MOV CL, IN_TMP+1
+		CALL F10T2
+		CMP SI, -1
+		JE TSA
+		MOV 15[BX], AX
+		
+RECOVER:LEA DX, CRLF
+		MOV AH, 09H
+		INT 21H
+		POP SI
+		POP DX
+		POP CX
+		POP AX
+		RET
+CHANGE  ENDP
+
+CODE    ENDS
+        END
